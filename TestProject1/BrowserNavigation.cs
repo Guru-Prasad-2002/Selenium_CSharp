@@ -35,8 +35,12 @@ namespace Article_Automation
             IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://demoqa.com/");
 
-            IWebElement ele = driver.FindElement(By.XPath("//[@id=\"app\"]/div/div/div[2]/div/div[1]"));
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            //IWebElement ele = driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]"));
+
+            IWebElement ele = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]")));
+
             IWebElement clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(ele));
 
             Actions actions = new Actions(driver);
@@ -50,7 +54,7 @@ namespace Article_Automation
 
             Thread.Sleep(3000);
 
-            driver.Quit();
+            //driver.Quit();
         }
     }
 }
