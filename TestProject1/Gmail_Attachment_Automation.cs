@@ -87,7 +87,7 @@ namespace Article_Automation
 
             //Perform JS click on attach button
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", attach_button);
-
+            
         }
     }
 }
